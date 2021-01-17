@@ -8,6 +8,13 @@ class Routes {
   constructor(io) {
     this.#io = io;
   }
+  async options(request, response) {
+    response.writeHead(204, {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "OPTIONS, POST",
+    });
+    response.end();
+  }
 
   // Post route definition
   async post(request, response) {
